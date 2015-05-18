@@ -1,0 +1,21 @@
+<div class="m-modal" style="<%if(settings.width){%>width:<%=settings.width%><%}%>">
+    <div class="m-title">
+        <h3><%=title%></h3>
+        <%if(!settings.hide_close){%>
+        <span class="u-hide u-close">×</span>
+        <%}%>
+    </div>
+    <div class="m-body">
+        <%=body%>
+    </div>
+    <div class="m-foot">
+        <%if(!settings.hide_close){%>
+        <button class="u-btn u-btn-w u-close">关闭</button>
+        <%}%>
+        <%_.each(settings.buttons,function(item,i){%>
+        <button type="button" class="u-btn <%=item.className%>" id="<%=item.id%>" <%for(var d in item.data){%>data-<%=item.data[d].name%>="<%=item.data[d].value%>"<%}%>>
+        <%=item.name%>
+        </button>
+        <%})%>
+    </div>
+</div>

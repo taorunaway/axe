@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        input(type='hidden',id='callback',value= callback)
+        div#images
+        script(src="/js/require.js")
+        script.
+            require(['/js/common.js'], function (common) {
+                require(['app/views/images'], function (View) {
+                    var view = new View({el:'#images',slt_callback:function(image){
+                        window.opener.CKEDITOR.tools.callFunction($('#callback').val(),image.get('url') ,'');
+                        window.close();
+                    }});
+                    view.show();
+                });
+            });

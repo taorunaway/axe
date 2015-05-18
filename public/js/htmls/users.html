@@ -1,0 +1,37 @@
+<table class="m-tbl">
+    <thead>
+        <tr>
+            <th>用户名</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>手机</th>
+            <th>座机</th>
+            <th>用户类型</th>
+            <th>创建时间</th>
+            <%if(user.role =='admin'){%>
+            <th><button class="u-btn u-btn-sm new_user">新建用户</button></th>
+            <%}%>
+        </tr>
+    </thead>
+    <tbody>
+    <%_.each(collection,function(item){%>
+    <tr>
+        <td><%=item.user_name%></td>
+        <td><%=item.real_name%></td>
+        <td><%=item.sex == 'nan' ? '男':'女'%></td>
+        <td><%=item.cell_phone%></td>
+        <td><%=item.office_phone%></td>
+        <td><%=item.role == 'admin' ? '管理员' : item.role == 'reporter' ? '采价人员':'查阅人员'%></td>
+        <td><%=item.create_at%></td>
+        <%if(user.role =='admin'){%>
+            <td>
+                <button class="u-btn u-btn-sm edit" data-id="<%=item.id%>">编辑信息</button>
+                <%if(item.role =='reporter'){%>
+                <button class="u-btn u-btn-sm edit-cats" data-id="<%=item.id%>" >填报类目</button>
+                <%}%>
+            </td>
+        <%}%>
+    </tr>
+    <%})%>
+    </tbody>
+</table>

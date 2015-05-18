@@ -1,0 +1,51 @@
+<form class="m-form edit_article_form">
+    <fieldset>
+        <div class="m-control-group">
+            <label for="title">标题</label>
+            <input id="title" name="name" type="text" placeholder=""  class="u-text u-text-lg"  data-required="true" value="<%=model.name%>" />
+        </div>
+        <div class="m-control-group">
+            <label >分类</label>
+            <select name="pcode1" class="u-slt">
+                <option value="">请选择</option>
+            </select>
+            <select name="pcode2" class="u-slt">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <div class="m-control-group">
+            <label for="">发布时间</label>
+            <input id="publish_at" name="publish_at" type="text" placeholder=""  class="u-text"  value="<%=model.publish_at%>" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm'})"/>
+        </div>
+        <div class="m-control-group">
+            <label >摘要</label>
+            <textarea name="description"  rows="5" class="u-text u-text-lg"><%=model.description%></textarea>
+        </div>
+        <div>
+            <label>主图</label>
+            <button class="u-btn u-btn-w slt_image" type="button">选择</button>
+            <div class="thumbnail_image" style="margin-left: 80px;">
+                <%if(model.image){%>
+                <img src="<%=model.image%>" style="width: 100px;" />
+                <input type="hidden" name="image" value="<%=model.image%>" />
+                <%}%>
+            </div>
+        </div>
+        <div>
+            <label>文章内容</label>
+            <span class="f-ib">
+                <textarea name="content" id="article_content"><%=model.content%></textarea>
+            </span>
+        </div>
+        <div>
+            <label></label>
+            <button class="u-btn u-btn-w go_back" type="button">返回</button>
+            <button class="u-btn u-btn-w delete" type="button">删除</button>
+            <button class="u-btn preview u-btn-w" type="button">预览</button>
+            <%if(!model.status){%>
+            <button class="u-btn save" type="button" >保存</button>
+            <%}%>
+            <button class="u-btn publish" type="button" >保存并发布</button>
+        </div>
+    </fieldset>
+</form>

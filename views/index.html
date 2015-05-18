@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>绍兴市房地产管理处微信管理平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+</head>
+<body>
+<div class="g-hd">
+    <div class="m-user-bar">
+        <div class="g-doc" id="user_banner">绍兴市房地产管理处微信管理平台</div>
+    </div>
+    <div class="m-logo">
+        <div class="g-doc">
+            <h1 class="f-dn"></h1>
+        </div>
+    </div>
+    <div class="m-nav">
+        <ul class="">
+            <li><a href="#home" hidefocus="true" class="m-active">首页</a></li>
+        </ul>
+    </div>
+</div>
+<div class="g-bd">
+    <div class="g-doc f-cb" id="content">
+
+    </div>
+</div>
+<div class="g-ft">
+    <div class="g-doc">
+        <a href="#help">帮助</a>
+        <a href="#aboutus">关于我们</a>
+    </div>
+</div>
+<div class="m-overlay" style="display: none;"></div>
+<script src="/js/require.js"></script>
+<script type="text/javascript">
+    var console = console || {log: function () {return false;}};
+    //requirejs.onError = function (err) {
+    //  console.log(err,err.requireType);
+    //  if (err.requireType === 'timeout') {
+    //    alert('加载超时，请确认您的网络状况，并刷新页面');
+    //    console.log('modules: ' + err.requireModules);
+    //  }else if(err.requireType == 'nodefine'){
+    //    alert('加载未定义项，请联系管理员');
+    //  }else if(err.requireType == 'scripterror'){
+    //    alert('脚本错误，请联系管理员,scripterror');
+    //  }else{
+    //    alert('未定义错误，请联系管理员');
+    //  }
+    //};
+    require(['/js/common.js'], function (common) {
+        require(['backbone','app/router'], function (Backbone,router) {
+            var workspace = new router();
+            Backbone.history.start();
+        });
+    });
+</script>
+</body>
+</html>

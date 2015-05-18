@@ -1,0 +1,50 @@
+<div class="m-form" id="user_fields">
+    <div>
+        <label>用户名：</label>
+        <%if(model.id){%>
+        <span><%=model.user_name%></span>
+        <%}else{%>
+        <input type="text" name="user_name" value="<%=model.user_name%>" class="u-text" data-required="true"/>
+        <%}%>
+    </div>
+    <%if(!model.id){%>
+    <div>
+        <label>密码：</label>
+        <input type="text" name="password" value="123456" class="u-text"/>
+    </div>
+    <div>
+        <label>用户类型</label>
+        <select name="role">
+            <option value="caozuo">操作人员</option>
+            <option value="admin">管理员</option>
+        </select>
+    </div>
+    <%}%>
+    <div>
+        <label>姓名：</label>
+        <input type="text" name="real_name" value="<%=model.real_name%>" class="u-text"/>
+    </div>
+    <div>
+        <label>性别：</label>
+        <select name="sex">
+            <option value="nan" >男</option>
+            <option value="nv" <%if(model.sex=='nv'){%>selected="selected"<%}%>>女</option>
+        </select>
+    </div>
+    <div>
+        <label>座机：</label>
+        <input type="text" name="office_phone" value="<%=model.office_phone%>" class="u-text"/>
+    </div>
+    <div>
+        <label>短号：</label>
+        <input type="text" name="short_phone" value="<%=model.short_phone%>" class="u-text"/>
+    </div>
+    <div>
+        <label>手机：</label>
+        <input type="text" name="cell_phone" value="<%=model.cell_phone%>" class="u-text"/>
+    </div>
+    <div>
+        <label>邮箱：</label>
+        <input type="text" name="email" value="<%=model.email%>" class="u-text"/>
+    </div>
+</div>

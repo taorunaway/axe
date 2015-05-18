@@ -1,0 +1,17 @@
+<div>
+    <ul class="m-images f-cb">
+        <%_.each(collection,function(item,i){%>
+        <li data-id="<%=item.id%>">
+            <div class="m-img-contain">
+                <img src="<%=item.thumbnail%>" alt="<%=item.name%>" style="width: 160px;"/>
+            </div>
+            <div class="m-title">
+                <p><%=item.name || '没有标题'%></p>
+                <%if(show_edit){%>
+                <button type="button"  class="u-btn u-btn-sm u-btn-w edit">编辑</button><button type="button" class="u-btn u-btn-sm u-btn-w delete">删除</button>
+                <%}%>
+            </div>
+        </li>
+        <%})%>
+    </ul>
+</div>

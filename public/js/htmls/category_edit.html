@@ -1,0 +1,29 @@
+<div class="m-form edit_category_contain">
+    <div class="m-control-group">
+        <label>代码</label>
+        <%if(model.id){%>
+        <span><%=model.id%></span>
+        <%}else{%>
+        <input type="text" class="u-text" value="" name="code"><span>(不可重复)</span>
+        <%}%>
+    </div>
+    <%if(!model.id){%>
+    <div class="m-control-group">
+        <label>上次分类</label>
+        <select name="pcode">
+            <option value="">不分配</option>
+            <%_.each(pcates,function(item){%>
+            <option value="<%=item.id%>"><%=item.name%></option>
+            <%})%>
+        </select>
+    </div>
+    <%}%>
+    <div class="m-control-group">
+        <label>名称</label>
+        <input type="text" name="name" value="<%=model.name%>" class="u-text" data-required="true">
+    </div>
+    <div class="m-control-group">
+        <label>排序</label>
+        <input type="text" name="the_order" value="<%=model.the_order%>" class="u-text" data-number="true">
+    </div>
+</div>

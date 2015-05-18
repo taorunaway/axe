@@ -1,0 +1,65 @@
+<div class="g-side">
+    <ul id="account_nav">
+        <li>
+            <a href="#" data-t="#account_fields"  class="m-active">用户信息</a>
+        </li>
+        <li>
+            <a href="#" data-t="#pass_fields">修改密码</a>
+        </li>
+    </ul>
+</div>
+<div class="g-mn">
+    <div class="m-form" id="account_fields">
+        <div>
+            <label>用户名：</label>
+            <span><%=user_name%></span>
+        </div>
+        <div>
+            <label>姓名：</label>
+            <input type="text" name="real_name" value="<%=real_name%>" class="u-text"/>
+        </div>
+        <div>
+            <label>性别：</label>
+            <select name="sex">
+                <option value="nan" >男</option>
+                <option value="nv" <%if(sex=='nv'){%>selected="selected"<%}%>>女</option>
+            </select>
+        </div>
+        <div>
+            <label>座机：</label>
+            <input type="text" name="office_phone" value="<%=office_phone%>" class="u-text"/>
+        </div>
+        <div>
+            <label>短号：</label>
+            <input type="text" name="short_phone" value="<%=short_phone%>" class="u-text"/>
+        </div>
+        <div>
+            <label>手机：</label>
+            <input type="text" name="cell_phone" value="<%=cell_phone%>" class="u-text"/>
+        </div>
+        <div>
+            <label>邮箱：</label>
+            <input type="text" name="email" value="<%=email%>" class="u-text"/>
+        </div>
+        <div>
+            <button class="u-btn" id="save">修改</button>
+        </div>
+    </div>
+    <div class="m-form f-dn" id="pass_fields">
+        <div>
+            <label>原密码：</label>
+            <input type="password" name="password" value="" class="u-text"/>
+        </div>
+        <div>
+            <label>新密码：</label>
+            <input type="password" name="new_password" value="" class="u-text"/>
+        </div>
+        <div>
+            <label>重复新密码：</label>
+            <input type="password" name="confirm_password" value="" class="u-text"/>
+        </div>
+        <div>
+            <button class="u-btn" id="do_change">修改</button>
+        </div>
+    </div>
+</div>

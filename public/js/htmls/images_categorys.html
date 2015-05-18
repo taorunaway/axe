@@ -1,0 +1,17 @@
+<table class="m-tbl m-tbl-bd" style="width: 350px;">
+    <thead>
+        <tr><th>名称</th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+    <%_.each(collection,function(item){if(item.id != 1){%>
+    <tr>
+        <td><%=item.name%></td><td><%=item.the_order%></td><td><button type="button" class="u-btn u-btn-sm u-btn-w delete_cate" data-id="<%=item.id%>">删除</button> </td>
+    </tr>
+    <%}})%>
+    <tr>
+        <td><input type="text" name="name" class="u-text" /></td>
+        <td><input type="text" name="the_order" class="u-text"></td>
+        <td><button type="button" class="u-btn u-btn-sm create_cate">添加</button></td>
+    </tr>
+    </tbody>
+</table>

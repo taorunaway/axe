@@ -1,0 +1,53 @@
+<%page = page ? parseInt(page) : 1%>
+<%pages = pages ? parseInt(pages) : 1 %>
+<div class="m-pages f-cb">
+    <ul class="m-page" data-page="<%=page%>" data-pages="<%=pages%>" data-count="<%=count%>">
+        <li <%if(page == 1){%>class="disabled"<%}%>>
+        <%if(page == 1){%>
+        <a href="#">«</a>
+        <%}else{%>
+        <a href="#page=<%=page - 1%>">«</a>
+        <%}%>
+        </li>
+        <%if(page != 1){%>
+        <li><a href="#page=1">1</a></li>
+        <%}%>
+        <%if(page - 4 > 0){%>
+        <li class="disabled"><a href="#">...</a></li>
+        <%}%>
+        <%if (page - 2 > 1){%>
+        <li><a href="#page=<%=page- 2%>"><%=page- 2%></a></li>
+        <%}%>
+        <%if (page - 1 > 1){%>
+        <li><a href="#page=<%=page- 1%>"><%=page- 1%></a></li>
+        <%}%>
+        <li class="active">
+            <a href="#"><%=page%></a>
+        </li>
+        <%if (page + 1 < pages){%>
+        <li><a href="#page=<%=page+1%>"><%=page+1%></a></li>
+        <%}%>
+        <%if (page + 2 < pages){%>
+        <li><a href="#page=<%=page+2%>"><%=page+2%></a></li>
+        <%}%>
+        <%if (page + 3 < pages){%>
+        <li><a href="#page=<%=page+3%>"><%=page+3%></a></li>
+        <%}%>
+        <%if (pages > page + 3){%>
+        <li><li class="disabled"><a href="#">...</a></li></li>
+        <%}%>
+        <%if (page != pages){%>
+        <li><a href="#page=<%=pages%>"><%=pages%></a></li>
+        <%}%>
+        <li <%if (page == pages){%>class="disabled"<%}%>>
+        <%if (page == pages){%>
+        <a href="#">»</a>
+        <%}else{%>
+        <a href="#page=<%=page+1%>">»</a>
+        <%}%>
+        </li>
+    </ul>
+    <%if(count || count == 0){%>
+    <div class="m-pinfo">共有<%=count%>条数据</div>
+    <%}%>
+</div>

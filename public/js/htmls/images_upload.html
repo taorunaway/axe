@@ -1,0 +1,28 @@
+<form class="m-form" action="/images" method="post">
+    <div class="m-control-group">
+        <label>选择分类</label>
+        <select name="category">
+            <option value="1" <%if(model.category == 1){%>selected="selected"<%}%>>未分类</option>
+            <%_.each(categorys,function(item){
+            if(item.id != 1){
+            %>
+            <option value="<%=item.id%>" <%if(model.category == item.id){%>selected="selected"<%}%>><%=item.name%></option>
+            <%}})%>
+        </select>
+    </div>
+    <div class="m-control-group">
+        <label>标题</label>
+        <input type="text" class="u-text" name="name" value="<%=model.name%>"/>
+    </div>
+    <%if(model.id){%>
+    <div style="width: 450px;">
+        <img src="<%=model.url%>" style="width: 100%;">
+    </div>
+    <%}else{%>
+    <div>
+        <label>选择图片</label>
+        <input type="file" name="file">
+    </div>
+    <%}%>
+
+</form>

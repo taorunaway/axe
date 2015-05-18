@@ -1,0 +1,26 @@
+<table class="m-tbl m-tbl-bd">
+    <thead>
+        <tr><th colspan="2">一级类目</th><th>二级类目</th><th><button type="button" class="u-btn u-btn-sm new_cat">添加</button></th></tr>
+    </thead>
+    <tbody>
+    <%for(var i = 0 ; i < cats.length;i++){%>
+    <tr>
+        <td rowspan="<%=cats[i].subs && cats[i].subs.length || 1%>"><%=cats[i].name%></td>
+        <td rowspan="<%=cats[i].subs && cats[i].subs.length || 1%>"><button type="button" class="u-btn u-btn-sm u-btn-w edit_cat" data-id="<%=cats[i].id%>">编辑</button></td>
+        <%if(cats[i].subs && cats[i].subs.length > 0){%>
+        <td><%=cats[i].subs[0].name%></td><td><button type="button" class="u-btn u-btn-sm u-btn-w edit_cat" data-id="<%=cats[i].subs[0].id%>">编辑</button></td>
+        <%}else{%>
+        <td></td><td></td>
+        <%}%>
+    </tr>
+    <%if(cats[i].subs && cats[i].subs.length > 1){
+    for(var j = 1;j < cats[i].subs.length;j++){
+    %>
+    <tr>
+        <td><%=cats[i].subs[j].name%></td><td><button type="button" class="u-btn u-btn-sm u-btn-w edit_cat" data-id="<%=cats[i].subs[j].id%>">编辑</button></td>
+    </tr>
+    <%}
+    }%>
+    <%}%>
+    </tbody>
+</table>
